@@ -6,6 +6,12 @@ const MainBox = () => {
   const [showThirdBox, setShowThirdBox] = useState(false);
   const [attorneyResponse, setAttorneyResponse] = useState(false);
   const [showFourthBox, setShowFourthBox] = useState(false);
+  const [showFifthBox, setShowFifthBox] = useState(false);
+  const [showSixthBox, setShowSixthBox] = useState(false);
+  const [showSeventhBox, setShowSeventhBox] = useState(false);
+  const [count, setCount] = useState(0);
+  const [showEightBox, setShowEightBox] = useState(false);
+  const [showNinthBox, setShowNinthBox] = useState(false);
 
   const handleFirstBoxChange = () => {
     setShowFirstBox(false);
@@ -23,8 +29,33 @@ const MainBox = () => {
 
   const handleThirdBoxChange = () => {
     setShowThirdBox(false);
-    console.log(showFirstBox);
     setShowFourthBox(true);
+  };
+
+  const handleFourthBoxChange = () => {
+    setShowFourthBox(false);
+    setShowFifthBox(true);
+  };
+
+  const handleFifthBoxChange = () => {
+    setShowFifthBox(false);
+    setShowSixthBox(true);
+  };
+
+  const handleClicks = () => {
+    setCount((prevCount) => prevCount + 1);
+    if (count === 1) {
+      setShowSixthBox(false);
+      setShowSeventhBox(true);
+    }
+    if (count === 2) {
+      setShowSeventhBox(false);
+      setShowEightBox(true);
+    }
+    if (count === 3) {
+      setShowEightBox(false);
+      setShowNinthBox(true);
+    }
   };
 
   return (
@@ -169,7 +200,13 @@ const MainBox = () => {
           <label htmlFor="fault_yes">Yes</label>
           <br />
 
-          <input type="radio" id="fault_no" name="fault" value="no" />
+          <input
+            type="radio"
+            id="fault_no"
+            name="fault"
+            value="no"
+            onChange={handleFourthBoxChange}
+          />
           <label htmlFor="fault_no">No</label>
           <br />
         </div>
@@ -183,10 +220,87 @@ const MainBox = () => {
         </div>
       )}
 
+      <div className={`box ${showFifthBox ? "fade-in" : "fade-out"}`}>
+        <p>When did this accident happen? *</p>
+        <input
+          type="radio"
+          id="within_1_week"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="within_1_week">Within 1 Week</label>
+        <br />
+
+        <input
+          type="radio"
+          id="within_1_3_months"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="within_1_3_months">Within 1-3 months</label>
+        <br />
+
+        <input
+          type="radio"
+          id="within_4_6_months"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="within_4_6_months">Within 4-6 months</label>
+        <br />
+
+        <input
+          type="radio"
+          id="within_1_year"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="within_1_year">Within 1 Year</label>
+        <br />
+
+        <input
+          type="radio"
+          id="within_2_years"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="within_2_years">Within 2 Years</label>
+        <br />
+
+        <input
+          type="radio"
+          id="longer_than_2_years"
+          name="accident_time"
+          onChange={handleFifthBoxChange}
+        />
+        <label htmlFor="longer_than_2_years">Longer than 2 Years</label>
+        <br />
+      </div>
+
+      <div className={`box ${showSixthBox ? "fade-in" : "fade-out"}`}>
+        <p>Describe Your Incident *</p>
+        <input type="text" placeholder="Describe Your Incident" />
+      </div>
+
+      <div className={`box ${showSeventhBox ? "fade-in" : "fade-out"}`}>
+        <p>First Name *</p>
+        <input type="text" placeholder="First Name" />
+      </div>
+
+      <div className={`box ${showEightBox ? "fade-in" : "fade-out"}`}>
+        <p>Email *</p>
+        <input type="email" placeholder="Email" />
+      </div>
+
+      <div className={`box ${showNinthBox ? "fade-in" : "fade-out"}`}>
+        <p>Phone *</p>
+        <input type="text" placeholder="Phone" />
+      </div>
+
       {!attorneyResponse && (
         <div className="submit">
           <div className="loader"></div>
-          <button className="btn">
+          <button className="btn" onClick={handleClicks}>
             <i className="fa-solid fa-play"></i>
           </button>
         </div>
