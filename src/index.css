@@ -84,9 +84,9 @@
   width: 320px;
   margin-top: -200px;
   background-color: #fff;
-  z-index: 1000;
+  z-index: 1;
   padding: 50px;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
 }
 label {
   margin-left: 5px;
@@ -120,4 +120,16 @@ i{
   background-color: #2cb217;
   border: none;
   outline: none;
+}
+.box{
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.fade-in {
+  display: block;
+}
+
+.fade-out {
+  display: none;
 }
