@@ -158,7 +158,7 @@ i{
 }
 .box {
   display: block;
-  animation: fadeInLeft 1s ease backwards;
+  animation: fadeInLeft 2s ease backwards;
 }
 @keyframes fadeInLeft {
   from {
@@ -173,7 +173,6 @@ i{
 .fade-in {
   display: block;
 }
-
 .fade-out {
   opacity: 0;
   display: none;

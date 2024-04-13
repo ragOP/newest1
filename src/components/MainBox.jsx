@@ -19,56 +19,74 @@ const MainBox = () => {
   const navigateTo = useNavigate();
 
   const handleFirstBoxChange = () => {
-    setShowFirstBox(false);
-    setShowSecondBox(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setShowFirstBox(false);
+      setShowSecondBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleSecondBoxChange = () => {
-    setShowSecondBox(false);
-    setShowThirdBox(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setShowSecondBox(false);
+      setShowThirdBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleAttorneyChange = () => {
-    setAttorneyResponse(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setAttorneyResponse(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleThirdBoxChange = () => {
-    setShowThirdBox(false);
-    setShowFourthBox(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setShowThirdBox(false);
+      setShowFourthBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleFourthBoxChange = () => {
-    setShowFourthBox(false);
-    setShowFifthBox(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setShowFourthBox(false);
+      setShowFifthBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleFifthBoxChange = () => {
-    setShowFifthBox(false);
-    setShowSixthBox(true);
-    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    setTimeout(() => {
+      setShowFifthBox(false);
+      setShowSixthBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+    }, 500);
   };
 
   const handleClicks = () => {
     setCount((prevCount) => prevCount + 1);
     if (count === 1) {
-      setShowSixthBox(false);
-      setShowSeventhBox(true);
-      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      setTimeout(() => {
+        setShowSixthBox(false);
+        setShowSeventhBox(true);
+        setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      }, 500);
     }
     if (count === 2) {
-      setShowSeventhBox(false);
-      setShowEightBox(true);
-      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      setTimeout(() => {
+        setShowSeventhBox(false);
+        setShowEightBox(true);
+        setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      }, 500);
     }
     if (count === 3) {
-      setShowEightBox(false);
-      setShowNinthBox(true);
-      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      setTimeout(() => {
+        setShowEightBox(false);
+        setShowNinthBox(true);
+        setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
+      }, 500);
     }
     if (count === 4) {
       setLoader(true);
