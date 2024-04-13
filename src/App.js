@@ -1,19 +1,15 @@
-import "./App.css";
-import Counter from "./components/Counter";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import MainBox from "./components/MainBox";
+import CongratulationsPage from "./Pages/CongratulationsPage";
+import HomePage from "./Pages/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="app_box">
-        <MainBox />
-      </div>
-      <Counter />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/result" element={<CongratulationsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MainBox = () => {
   const [showFirstBox, setShowFirstBox] = useState(true);
@@ -12,6 +13,9 @@ const MainBox = () => {
   const [count, setCount] = useState(0);
   const [showEightBox, setShowEightBox] = useState(false);
   const [showNinthBox, setShowNinthBox] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  const navigateTo = useNavigate();
 
   const handleFirstBoxChange = () => {
     setShowFirstBox(false);
@@ -55,6 +59,12 @@ const MainBox = () => {
     if (count === 3) {
       setShowEightBox(false);
       setShowNinthBox(true);
+    }
+    if (count === 4) {
+      setLoader(true);
+      setTimeout(() => {
+        navigateTo("/result");
+      }, 4000);
     }
   };
 
@@ -299,10 +309,19 @@ const MainBox = () => {
 
       {!attorneyResponse && (
         <div className="submit">
-          <div className="loader"></div>
-          <button className="btn" onClick={handleClicks}>
-            <i className="fa-solid fa-play"></i>
-          </button>
+          {loader ? (
+            <>
+              <div className="loader"></div>
+              <div className="spinner"></div>
+            </>
+          ) : (
+            <>
+              <div className="loader"></div>
+              <button className="btn" onClick={handleClicks}>
+                <i className="fa-solid fa-play"></i>
+              </button>
+            </>
+          )}
         </div>
       )}
     </>

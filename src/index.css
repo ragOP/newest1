@@ -21,7 +21,30 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 150px;
+  height: 80px;
+  background: linear-gradient(to bottom right, transparent 49%, #fff 51%);
+  transform-origin: bottom left;
+  transform: skewX(-40deg);
+}
+
+.background1 {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background-color: #1c2d65;
+  padding: 40px 30px;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  z-index: -1;
+}
+
+.background1::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
   background: linear-gradient(to bottom right, transparent 49%, #fff 51%);
   transform-origin: bottom left;
   transform: skewX(-40deg);
@@ -146,4 +169,49 @@ input {
 }
 ::placeholder {
   color: #999;
+}
+
+.heading4{
+  text-align: center;
+  color: #2cb217;
+  font-size: 38px;
+  font-weight: 800;
+}
+.heading5{
+  text-align: left;
+  color: #fff;
+  font-size: 26px;
+  margin-top: 15px;
+  font-weight: 300;
+}
+.heading5 > span{
+  font-weight: 900;
+}
+.heading6{
+  text-align: left;
+  color: #fff;
+  font-size: 26px;
+  margin-top: 15px;
+  font-weight: 300;
+}
+.heading7{
+  text-align: left;
+  color: #d9464d;
+  font-size: 26px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
