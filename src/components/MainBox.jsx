@@ -14,36 +14,43 @@ const MainBox = () => {
   const [showEightBox, setShowEightBox] = useState(false);
   const [showNinthBox, setShowNinthBox] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const navigateTo = useNavigate();
 
   const handleFirstBoxChange = () => {
     setShowFirstBox(false);
     setShowSecondBox(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleSecondBoxChange = () => {
     setShowSecondBox(false);
     setShowThirdBox(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleAttorneyChange = () => {
     setAttorneyResponse(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleThirdBoxChange = () => {
     setShowThirdBox(false);
     setShowFourthBox(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleFourthBoxChange = () => {
     setShowFourthBox(false);
     setShowFifthBox(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleFifthBoxChange = () => {
     setShowFifthBox(false);
     setShowSixthBox(true);
+    setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
   };
 
   const handleClicks = () => {
@@ -51,17 +58,21 @@ const MainBox = () => {
     if (count === 1) {
       setShowSixthBox(false);
       setShowSeventhBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
     }
     if (count === 2) {
       setShowSeventhBox(false);
       setShowEightBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
     }
     if (count === 3) {
       setShowEightBox(false);
       setShowNinthBox(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 10, 100));
     }
     if (count === 4) {
       setLoader(true);
+      setProgress((prevProgress) => Math.min(prevProgress + 20, 100));
       setTimeout(() => {
         navigateTo("/result");
       }, 4000);
@@ -311,12 +322,20 @@ const MainBox = () => {
         <div className="submit">
           {loader ? (
             <>
-              <div className="loader"></div>
+              <div className="progress-bar">
+                <div className="loader" style={{ width: `${progress}%` }}>
+                  <span>{progress}%</span>
+                </div>
+              </div>
               <div className="spinner"></div>
             </>
           ) : (
             <>
-              <div className="loader"></div>
+              <div className="progress-bar">
+                <div className="loader" style={{ width: `${progress}%` }}>
+                  <span>{progress}%</span>
+                </div>
+              </div>
               <button className="btn" onClick={handleClicks}>
                 <i className="fa-solid fa-play"></i>
               </button>
